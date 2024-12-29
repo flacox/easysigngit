@@ -1,0 +1,60 @@
+ion-content {
+  margin-top: 200px;
+}
+
+.home-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  
+    .welcome-container {
+      padding: 20px;
+  
+      .logo {
+        width: 120px;
+        margin: 0 auto 20px;
+      }
+  
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+  
+      ion-button {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  
+    .features-container {
+      margin-top: 30px;
+      width: 100%;
+  
+      ion-card {
+        margin: 10px auto;
+        width: 90%;
+      }
+  
+      ion-card-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #0056b3;
+      }
+  
+      ion-card-content {
+        font-size: 14px;
+        color: #333;
+      }
+    }
+  }
+  

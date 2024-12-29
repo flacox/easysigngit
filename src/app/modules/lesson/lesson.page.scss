@@ -1,0 +1,21 @@
+.features-container {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+
+    ion-card {
+      margin: 10px auto;
+      width: 90%;
+    }
+
+    ion-card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0056b3;
+    }
+
+    ion-card-content {
+      font-size: 14px;
+      color: #333;
+    }
+  }
