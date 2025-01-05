@@ -2,7 +2,10 @@
   <div class="d-flex-center">
     <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form" (keypress.enter)="submit()">
 
-      <app-logo></app-logo>
+      <img src="assets/img/logo11.png" alt="EasySign Logo" class="logo"/>
+
+        <h1 class="custom-title">EASYSIG</h1>
+
       <app-login-input
       autocomplete="email"
       type="email"
@@ -28,8 +31,6 @@
       <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
         <div *ngIf="form.controls.password.errors?.['required']"> La contraseña es requerida </div>
       </div>
-
-      
 
       <p routerLink="forgot-password" style="color: rgb(38, 0, 255);">¿Olvidaste la contraseña?</p>
 
