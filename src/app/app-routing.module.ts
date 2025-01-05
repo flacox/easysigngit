@@ -17,7 +17,7 @@ const routes: Routes = [
   // }
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule)
   },
   {
     path: 'lesson',
@@ -38,7 +38,16 @@ const routes: Routes = [
   {
     path: 'test',
     loadChildren: () => import('./modules/test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   }
+
 ];
 
 @NgModule({
