@@ -9,20 +9,28 @@
 
 <ion-content [fullscreen]="true">
   <form (ngSubmit)="submitPost()">
+
     <ion-list>
-      <ion-item>
+      <ion-item class="custom-item">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
         <ion-label position="floating">Nombre de Usuario</ion-label>
-        <ion-input [(ngModel)]="username" name="username" required></ion-input>
+        <ion-input [(ngModel)]="username" name="username" readonly></ion-input>
       </ion-item>
-      <ion-item>
+  
+      <ion-item class="custom-item">
+        <ion-icon name="bookmark-outline" slot="start"></ion-icon>
         <ion-label position="floating">Título</ion-label>
         <ion-input [(ngModel)]="title" name="title" required></ion-input>
       </ion-item>
-      <ion-item>
+  
+      <ion-item class="custom-item">
+        <ion-icon name="create-outline" slot="start"></ion-icon>
         <ion-label position="floating">Contenido</ion-label>
         <ion-textarea [(ngModel)]="content" name="content"></ion-textarea>
       </ion-item>
-      <ion-item>
+  
+      <ion-item class="custom-item">
+        <ion-icon name="image-outline" slot="start"></ion-icon>
         <ion-label position="floating">Imagen</ion-label>
         <ion-input type="url" [(ngModel)]="imageUrl" name="imageUrl"></ion-input>
       </ion-item>

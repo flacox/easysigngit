@@ -12,13 +12,12 @@
       [control]="form.controls.email"
       label="Correo electrónico"
       
-      icon="mail-outline"
+      icon="mail-outline" 
       ></app-login-input>
 
       <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
         <div *ngIf="form.controls.email.errors?.['required']"> El correo es requerido </div>
         <div *ngIf="form.controls.email.errors?.['email']"> Ingrese un correo valido </div>
-
       </div>
 
       <app-login-input

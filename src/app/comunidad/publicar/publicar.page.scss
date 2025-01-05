@@ -38,4 +38,14 @@
     font-weight: bold; /* Negrita */
     font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
   }
-  
+
+/* Íconos alineados a la izquierda */
+.custom-item ion-icon {
+  color: #007bff; /* Color azul para los íconos */
+  font-size: 20px; /* Tamaño del ícono */
+  margin-right: 8px; /* Espaciado del ícono */
+}
+.custom-item ion-label {
+  font-size: 14px; /* Tamaño de la etiqueta */
+  color: #000; /* Color del texto */
+}
