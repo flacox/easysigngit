@@ -1,4 +1,11 @@
-<app-header backButton="/auth" title="Registrarse"></app-header>
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/auth">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center custom-title-global">Registrate Aqui😎</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
   <div class="d-flex-center">
@@ -46,7 +53,7 @@
       </div>
 
       
-      <ion-button type="submit" class="ion-margin-top"  color="success" 
+      <ion-button type="submit" class="ion-margin-top custom-title"  color="success" 
       expand="block" mode="ios" fill="solid" [disabled]="form.invalid">
         Registrarse
       </ion-button>

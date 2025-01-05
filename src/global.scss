@@ -126,3 +126,16 @@
         --height: 680px;
     }
 }
+  .custom-toolbar-global {
+    --background: #007bff; /* Azul específico */
+  }
+  
+.custom-title-global {
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    color: rgb(255, 255, 255);
+  }
+  .custom-icon-global {
+    color: #ffffff; /* Cambia a tu color preferido, aquí es naranja */
+    font-size: 44px; /* Puedes ajustar el tamaño del ícono si lo deseas */
+  }
