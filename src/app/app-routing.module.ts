@@ -46,7 +46,15 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },  {
+    path: 'social',
+    loadChildren: () => import('./comunidad/social/social.module').then( m => m.SocialPageModule)
+  },
+  {
+    path: 'publicar',
+    loadChildren: () => import('./comunidad/publicar/publicar.module').then( m => m.PublicarPageModule)
   }
+
 
 ];
 

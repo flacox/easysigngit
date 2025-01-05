@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/lesson">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">EASYSIG COMUNIDAD😎</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-buttons class="button-container">
+  <ion-button class="custom-button" routerLink="/publicar">
+    <ion-icon class="custom-icon" name="create-outline"></ion-icon>
+    <span class="custom-label">Crear Publicación</span>
+  </ion-button>
+</ion-buttons>
+
+<ion-content [fullscreen]="true">
+ <!-- Lista de publicaciones -->
+ <ion-list>
+  <ion-item *ngFor="let post of posts">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2>{{ post.username }}</h2>
+          <h3>{{ post.title }}</h3>
+          <p *ngIf="post.content">{{ post.content }}</p>
+          <!-- Si hay una imagen -->
+          <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Imagen publicada" style="width: 100%; height: auto;" />
+        </ion-col> 
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="primary" routerLink="/comentar">
+            <ion-icon slot="start" name="chatbubble-outline"></ion-icon>
+            COMENTAR
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>
+</ion-content>
