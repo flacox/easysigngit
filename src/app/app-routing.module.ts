@@ -53,6 +53,14 @@ const routes: Routes = [
   {
     path: 'publicar',
     loadChildren: () => import('./comunidad/publicar/publicar.module').then( m => m.PublicarPageModule)
+  },
+  {
+    path: 'lesson4',
+    loadChildren: () => import('./pages/lesson4/lesson4.module').then( m => m.Lesson4PageModule)
+  },
+  {
+    path: 'lesson5',
+    loadChildren: () => import('./pages/lesson5/lesson5.module').then( m => m.Lesson5PageModule)
   }
 
 

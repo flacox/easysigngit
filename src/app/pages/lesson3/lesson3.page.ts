@@ -38,5 +38,5 @@ export class Lesson3Page {
     });
     await modal.present();
   }
-
+ 
 }

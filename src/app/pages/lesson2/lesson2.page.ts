@@ -7,7 +7,7 @@ import { VideoModalComponent } from 'src/app/video-modal/video-modal.component';
   templateUrl: './lesson2.page.html',
   styleUrls: ['./lesson2.page.scss'],
 })
-export class Lesson2Page {
+export class Lesson2Page { 
 
   videoList = [
     {title: 'Thank You', 
