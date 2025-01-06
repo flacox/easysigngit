@@ -11,6 +11,13 @@
   <form (ngSubmit)="submitPost()">
 
     <ion-list>
+
+      <ion-item class="custom-item">
+        <ion-label>
+          <strong>Nombre de Usuario:</strong> {{ username }}
+        </ion-label>
+      </ion-item>
+
       <ion-item class="custom-item">
         <ion-icon name="person-outline" slot="start"></ion-icon>
         <ion-label position="floating">Nombre de Usuario</ion-label>

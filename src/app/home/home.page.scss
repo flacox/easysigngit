@@ -58,4 +58,24 @@ ion-content {
     }
   }
   
+// estilo del menu
+
+.custom-button {
+  --background: var(--button-color, #4caf50); /* Verde por defecto */
+  --background-hover: var(--button-hover-color, #45a049); /* Hover verde */
+  --color: #ffffff; /* Texto blanco */
+  --border-radius: 8px; /* Bordes redondeados */
+  --transition: background-color 0.3s ease;
+  margin: 12px 0; /* Espaciado entre los botones */
+}
+
+.custom-button:hover {
+  --background: var(--button-hover-color);
+}
+
+/* Botones específicos */
+.stilos {
+  --button-color: #2643ff; /* Verde */
+  --button-hover-color: #45a049;
+}
   
