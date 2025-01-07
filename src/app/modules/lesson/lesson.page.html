@@ -12,8 +12,8 @@
   </ion-header>
 </ion-content> -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">EasySign</ion-title>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-title class="ion-text-center ion-text-center custom-title-global" >EasySign</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +21,10 @@
   <div class="features-container">
   <ion-card>
     <ion-card-header  routerLink="/home">
-      <ion-card-title>Inicio</ion-card-title>
+      <ion-card-title>
+        <ion-icon name="home" class="custom-icon"></ion-icon>
+         Inicio
+      </ion-card-title>
     </ion-card-header>
     <!-- <ion-card-content>
       Aprende desde lo básico hasta lo avanzado, paso a paso.
@@ -54,6 +57,16 @@
     </ion-card-header>
     <ion-card-content>
       Aprende a tener cortas conversaciones.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header  routerLink="/lesson4">
+      <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
+      <ion-card-title>Leccion 4</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Aprende a contar con los números básicos.
     </ion-card-content>
   </ion-card>
 

@@ -7,12 +7,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <p class="texto-leccion">Lección sobre los números básicos</p>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">lesson4</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="videos-container">
+    <div *ngFor="let video of videos; let i = index" class="video-wrapper">
+      <!-- Contenedor del Reproductor -->
+      <div class="video-frame">
+        <div [id]="'player' + i"></div>
+      </div>
+
+      <!-- Texto Debajo del Video -->
+      <p class="video-description">{{ video.description }}</p>
+    </div>
+  </div>
+  <ion-item routerLink="/test">
+    <ion-icon aria-hidden="true" name="barbell-outline" slot="start"></ion-icon>
+    <ion-label>Test</ion-label>
+  </ion-item>
 </ion-content>
  
