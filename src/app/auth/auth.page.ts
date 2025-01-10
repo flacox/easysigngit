@@ -25,6 +25,43 @@ export class AuthPage implements OnInit {
   ngOnInit() {
   }
 
+  // Ingresar como invitado:
+  async submitGuest(){
+    const loading = await this.utilsService.loading();
+    await loading.present()
+  const guest = await this.firebaseService.registerGuest();
+
+  this.utilsService.saveLocalStorage('guest', guest);
+
+  this.utilsService.routerlink('/home');
+  
+  try{
+    this.utilsService.presentToast({
+      message: 'Has ingresado como invitado',
+      duration: 1500,
+      color: 'primary',
+      position: 'bottom',
+      icon: 'person-circle-outline',
+    });
+  } catch (error){
+    console.error('Error al ingresar como invitado:', error);
+
+
+    this.utilsService.presentToast({
+      message: 'No se pudo ingresar como invitado. Por favor, intenta de nuevo.',
+      duration: 2500,
+      color: 'danger',
+      position: 'bottom',
+      icon: 'alert-circle-outline',
+    });
+  } finally {
+    loading.dismiss();
+  }    
+  
+
+  
+  }
+
   // Acá se realiza la suscripción de los datos obtenidos del form
   async submit() {
     if (this.form.valid) {

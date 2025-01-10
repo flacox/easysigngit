@@ -2,9 +2,10 @@ import { inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
-import { doc, getDoc, getFirestore, setDoc } from '@angular/fire/firestore'
+import { doc, getDoc, getFirestore, setDoc, collection } from '@angular/fire/firestore'
 import { User } from '../models/user.model';
 import { UtilsService } from './utils.service';
+import { Guest } from '../models/guest.model';
 
 
 @Injectable({
@@ -25,6 +26,26 @@ export class FirebaseService {
   signIn(user: User) {
     return signInWithEmailAndPassword(getAuth(), user.email, user.password);
   }
+
+    // Generar un ID único para el invitado
+  generateId(): string{
+    return this.firestore.createId();
+  }
+
+  // Registrar un invitado en la base de datos
+  async registerGuest(){
+    const guestId = this.generateId();
+    const guest: Guest = {
+      uid: guestId,
+    };
+    //Guardar el invitado en la colección
+    const path = `guests/${guestId}`;
+    await setDoc(doc(getFirestore(), path), guest);
+
+    return guest;
+  }
+
+  
 
   // Trae el contenido para registrarse
   signUp(user: User) {
@@ -59,6 +80,7 @@ export class FirebaseService {
   signOut(){
     getAuth().signOut();
     localStorage.removeItem('user');
+    localStorage.removeItem('guest');
     this.utilsService.routerlink('/auth');
   }
   
