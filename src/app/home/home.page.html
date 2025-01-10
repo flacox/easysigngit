@@ -62,6 +62,17 @@
   </div>
 </ion-content>
 
+<ion-footer class="ion-no-border safe-p-bottom">
+  <ion-toolbar auto-hide="false">
+    <ion-title>
+      <ion-item (click)="signOut()" lines="none">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
 <!-- <ion-footer>
   <ion-toolbar>
     <ion-title>CFG 2024 - 2025</ion-title>
