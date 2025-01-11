@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/demo">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center custom-title-global">Test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding test-content">
+
+  <div class="question-container">
+    <h2>¿Cuál es el color que se representa tocando el mentón con el dedo índice?</h2>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="selectedOption">
+        <ion-item>
+          <ion-label>Rojo</ion-label>
+          <ion-radio slot="start" value="Rojo"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Amarillo</ion-label>
+          <ion-radio slot="start" value="Amarillo"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Verde</ion-label>
+          <ion-radio slot="start" value="Verde"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Azúl</ion-label>
+          <ion-radio slot="start" value="Azul"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+  <div class="ion-margin-top">
+    <div class="button-container">
+      <ion-button expand="block" color="primary" (click)="submitAnswer()">Responder</ion-button>
+    </div>
+  </div>
+  
+</ion-content>

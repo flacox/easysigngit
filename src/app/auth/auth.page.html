@@ -1,8 +1,7 @@
 <ion-content class="background-color">
   <div class="d-flex-center">
     <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form" (keypress.enter)="submit()">
-
-      <img src="assets/img/logo11.png" alt="EasySign Logo" class="logo"/>
+      <app-logo></app-logo>
 
         <h1 class="custom-title">EASYSIGN</h1>
 
@@ -30,8 +29,11 @@
       <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
         <div *ngIf="form.controls.password.errors?.['required']"> La contraseña es requerida </div>
       </div>
+      <div class="d-flex-center ion-margin-horizontal">
+        <p routerLink="forgot-password" style="color: rgb(255, 95, 95);">¿Olvidaste la contraseña?</p>
+        <p routerLink="" style="color: rgb(0, 102, 255);">Volver a la demo</p>
 
-      <p routerLink="forgot-password" style="color: rgb(255, 95, 95);">¿Olvidaste la contraseña?</p>
+      </div>
 
       <ion-button color="primary" class="submit custom-title" type="submit" expand="block" mode="ios" fill="solid" [disabled]="form.invalid">
         Ingresar
@@ -46,6 +48,9 @@
        (click)="submitGuest()" expand="block" mode="ios" fill="solid">
         Entrar como invitado
       </ion-button>
+
+
+    
       
     </form>
   </div>

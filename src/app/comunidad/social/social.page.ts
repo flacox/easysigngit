@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-social',
@@ -6,6 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage {
+
+  isGuest: boolean = false;
+
+  utilsService = inject(UtilsService);
+  firebaseService = inject(FirebaseService);
+
+
+
+  //La función valida si en el localstorage está 'user' o está 'guest
+  ngOnInit(){
+    const guest = this.utilsService.getLocalStorage('guest');
+    if(guest){
+      this.isGuest = true;
+  }else{
+    this.isGuest = false;
+  }
+  }
+
+  signOut(){
+    this.firebaseService.signOut();
+  }
+
+
 
    // Arreglo de publicaciones
    posts = [
@@ -67,6 +92,7 @@ export class SocialPage {
     }
   ];
 
+
   // Método para abrir los comentarios de una publicación
   openComments(postId: number) {
     console.log('Abrir comentarios para el post con ID:', postId);
@@ -76,4 +102,10 @@ export class SocialPage {
   constructor() { }
 
 
+
+  
+
+
 }
+
+

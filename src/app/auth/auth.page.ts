@@ -33,7 +33,7 @@ export class AuthPage implements OnInit {
 
   this.utilsService.saveLocalStorage('guest', guest);
 
-  this.utilsService.routerlink('/home');
+  this.utilsService.routerlink('social');
   
   try{
     this.utilsService.presentToast({

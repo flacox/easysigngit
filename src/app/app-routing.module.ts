@@ -17,7 +17,7 @@ const routes: Routes = [
   // }
   {
     path: '',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule)
+    loadChildren: () => import('./demo/demo.module').then(m=> m.DemoPageModule)
   },
   {
     path: 'lesson',
@@ -63,6 +63,11 @@ const routes: Routes = [
     path: 'lesson5',
     loadChildren: () => import('./pages/lesson5/lesson5.module').then( m => m.Lesson5PageModule)
   },
+  {
+    path: 'demo',
+    loadChildren: () => import('./demo/demo.module').then( m => m.DemoPageModule)
+  },
+
 
 
 ];

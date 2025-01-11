@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="custom-toolbar-global">
-    <ion-buttons slot="start" routerLink="/lesson">
+    <!--La flecha para regresar al home solo se muestra si el usuario está registrado,
+    de ser invitado no se msotrará-->
+    <ion-buttons *ngIf="!isGuest" slot="start" routerLink="/lesson">
       <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-buttons>
     <ion-title class="ion-text-center custom-title-global">EASYSIG COMUNIDAD😎</ion-title>
@@ -8,7 +10,7 @@
 </ion-header>
 
 <ion-buttons class="button-container">
-  <ion-button class="custom-button" routerLink="/publicar">
+  <ion-button *ngIf="!isGuest" class="custom-button" routerLink="/publicar">
     <ion-icon class="custom-icon" name="create-outline"></ion-icon>
     <span class="custom-title-global">Crear Publicación</span>
   </ion-button>
@@ -40,3 +42,14 @@
   </ion-item>
 </ion-list>
 </ion-content>
+
+<ion-footer class="ion-no-border safe-p-bottom">
+  <ion-toolbar auto-hide="false">
+    <ion-title>
+      <ion-item (click)="signOut()" lines="none">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
