@@ -69,7 +69,8 @@ export class FirebaseService {
   }
 
   async getDocument(path: any){
-    return (await getDoc(doc(getFirestore(), path))).data();
+    const docSnapshot = await getDoc(doc(getFirestore(), path))
+    return docSnapshot.data();
   }
 
   sendRecoveryEmail(email: string){

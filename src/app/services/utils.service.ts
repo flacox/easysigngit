@@ -30,4 +30,8 @@ export class UtilsService {
     return localStorage.setItem(key, JSON.stringify(value));
   }
 
+  getLocalStorage(key: string){
+    return localStorage.getItem(key)
+  }
+
 }

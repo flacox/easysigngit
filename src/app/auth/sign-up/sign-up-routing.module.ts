@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SignUpPage
+  },
+  {
+    path: 'pre-test',
+    loadChildren: () => import('./pre-test/pre-test.module').then( m => m.PreTestPageModule)
   }
 ];
 

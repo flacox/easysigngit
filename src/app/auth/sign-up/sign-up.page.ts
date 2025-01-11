@@ -85,7 +85,7 @@ export class SignUpPage implements OnInit {
   
           //Acá se hace la redirección a la siguiente página
           //Por medio del utilsService y el routerlink creado dentro de aquel servicio
-          this.utilsService.routerlink('/home');
+          this.utilsService.routerlink('/auth/sign-up/pre-test');
           this.form.reset();
     
           //Acá se muestra el toast (mensaje abajo de bienvenida en este caso) proveniente de

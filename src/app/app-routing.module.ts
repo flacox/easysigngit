@@ -46,7 +46,8 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'social',
     loadChildren: () => import('./comunidad/social/social.module').then( m => m.SocialPageModule)
   },
@@ -61,7 +62,7 @@ const routes: Routes = [
   {
     path: 'lesson5',
     loadChildren: () => import('./pages/lesson5/lesson5.module').then( m => m.Lesson5PageModule)
-  }
+  },
 
 
 ];
