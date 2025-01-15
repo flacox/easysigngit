@@ -84,5 +84,17 @@ export class FirebaseService {
     localStorage.removeItem('guest');
     this.utilsService.routerlink('/auth');
   }
-  
+
+  constructor(private firestor: AngularFirestore) { }
+
+  // Método para obtener todas las publicaciones
+  getPosts() {
+    return this.firestor.collection('posts', ref => ref.orderBy('timestamp', 'desc')).snapshotChanges();
+  }
+
+  // Método para agregar una nueva publicación
+  addPost(post) {
+    return this.firestor.collection('posts').add(post);
+  }
+
 }

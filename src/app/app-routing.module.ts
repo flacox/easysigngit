@@ -48,14 +48,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'social',
-    loadChildren: () => import('./comunidad/social/social.module').then( m => m.SocialPageModule)
-  },
-  {
-    path: 'publicar',
-    loadChildren: () => import('./comunidad/publicar/publicar.module').then( m => m.PublicarPageModule)
-  },
-  {
     path: 'lesson4',
     loadChildren: () => import('./pages/lesson4/lesson4.module').then( m => m.Lesson4PageModule)
   },
@@ -67,7 +59,10 @@ const routes: Routes = [
     path: 'demo',
     loadChildren: () => import('./demo/demo.module').then( m => m.DemoPageModule)
   },
-
+  {
+    path: 'comunidad',
+    loadChildren: () => import('./pages/comunidad/comunidad.module').then( m => m.ComunidadPageModule)
+  },
 
 
 ];

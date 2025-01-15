@@ -12,6 +12,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { VideoModalComponent } from './video-modal/video-modal.component';
 
+import { PublicacionModalComponent } from './components/publicacion-modal/publicacion-modal.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 // Configuración de firebase de la aplicación web
 
@@ -27,13 +31,15 @@ export const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
-
 @NgModule({
-  declarations: [AppComponent, VideoModalComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    AngularFireModule, AngularFireModule.initializeApp(firebaseConfig),
-  AngularFirestoreModule],
+  declarations: [AppComponent, VideoModalComponent, PublicacionModalComponent],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    AngularFireModule, 
+    AngularFireModule.initializeApp(firebaseConfig),
+  AngularFirestoreModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

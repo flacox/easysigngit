@@ -26,13 +26,12 @@
         <div *ngIf="form.controls.name.errors?.['required']"> El nombre es requerido </div>
         <div *ngIf="form.controls.name.errors?.['minLength']"> Ingrese un nombre mayor a 3 caracteres </div>
 
-
       </div>
 
       <app-login-input
       autocomplete="email"
       type="email"
-      label="Correo electrónico"
+      label="Correo electrónico" 
       icon="mail-outline"
       [control]="form.controls.email"
       ></app-login-input>
