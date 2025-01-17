@@ -15,6 +15,8 @@ import { VideoModalComponent } from './video-modal/video-modal.component';
 import { PublicacionModalComponent } from './components/publicacion-modal/publicacion-modal.component';
 import { FormsModule } from '@angular/forms';
 
+import { ComentariosModalComponent } from './components/comentarios-modal/comentarios-modal.component';
+
 
 
 // Configuración de firebase de la aplicación web
@@ -32,7 +34,7 @@ export const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 @NgModule({
-  declarations: [AppComponent, VideoModalComponent, PublicacionModalComponent],
+  declarations: [AppComponent, VideoModalComponent, PublicacionModalComponent, ComentariosModalComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

@@ -1,0 +1,40 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline" (click)="cerrarModal()"></ion-icon>
+    </ion-buttons>  
+    <ion-title class="ion-text-center custom-title-global">Comentarios</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+  <!-- Mostrar contenido de la publicación -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
+      <ion-card-subtitle>{{ publicacion.nombreUsuario }} - {{ publicacion.fecha.toDate() | date: 'short' }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{ publicacion.contenido }}
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de comentarios -->
+  <ion-list>
+    <ion-item *ngFor="let comentario of comentarios">
+      <ion-label>
+        <h2>{{ comentario.nombreUsuario }}</h2>
+        <p>{{ comentario.contenido }}</p>
+        <p><small>{{ comentario.fecha?.toDate() | date: 'short' }}</small></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Campo para agregar nuevo comentario -->
+  <ion-item>
+    <ion-textarea [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario"></ion-textarea>
+  </ion-item>
+  <ion-button expand="block" color="primary" (click)="agregarComentario()">Enviar</ion-button>
+</ion-content>
+

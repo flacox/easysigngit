@@ -21,4 +21,12 @@ export class ComunidadService {
   addPublicacion(publicacion: { nombreUsuario: string; titulo: string; contenido: string; fecha: Date }) {
     return this.firestore.collection(this.collectionName).add(publicacion);
   }
+  // comentarios.
+  getComentariosCount(publicacionId: string): Promise<number> {
+    return this.firestore
+      .collection('comentarios', ref => ref.where('publicacionId', '==', publicacionId))
+      .get()
+      .toPromise()
+      .then(snapshot => snapshot.size);
+  }
 }

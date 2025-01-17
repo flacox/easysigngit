@@ -8,14 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <!-- Botón para abrir el modal -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="abrirModal()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <!-- Lista de publicaciones -->
   <ion-list>
     <ion-item *ngFor="let publicacion of publicaciones">
       <ion-card>
@@ -26,9 +24,13 @@
         <ion-card-content>
           {{ publicacion.contenido }}
         </ion-card-content>
+        <!-- Botón para abrir el modal de comentarios -->
+        <ion-button expand="block" color="primary" (click)="abrirComentarios(publicacion)">Comentar</ion-button>
       </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>
+
+
 
 

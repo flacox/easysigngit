@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, LoadingController } from '@ionic/angular';
 import { ComunidadService } from '../../services/comunidad.service';
 import { PublicacionModalComponent } from '../../components/publicacion-modal/publicacion-modal.component';
+import { ComentariosModalComponent } from '../../components/comentarios-modal/comentarios-modal.component';
+
 
 @Component({
   selector: 'app-comunidad',
@@ -19,6 +21,16 @@ export class ComunidadPage implements OnInit {
 
   ngOnInit() {
   }
+
+  //abrir comentarios
+  async abrirComentarios(publicacion: any) {
+    const modal = await this.modalController.create({
+      component: ComentariosModalComponent,
+      componentProps: { publicacionId: publicacion.id, publicacion }, // Pasa el objeto completo
+    });
+    await modal.present();
+  }
+  
 
   async ionViewWillEnter() {
     // Mostrar el loading cuando se accede a la pantalla
