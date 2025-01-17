@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController, LoadingController } from '@ionic/angular';
+import { ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { ComunidadService } from '../../services/comunidad.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class PublicacionModalComponent  implements OnInit {
   constructor(
     private modalController: ModalController, 
     private comunidadService: ComunidadService,
+    private toastController: ToastController,
     private loadingController: LoadingController) { }
 
   cerrarModal() {
@@ -44,8 +45,18 @@ export class PublicacionModalComponent  implements OnInit {
       })
       ;
     } else {
-      alert('Por favor, completa todos los campos.');
+      this.mostrarAlerta('Por favor, completa todos los campos.');
     }
+  }
+
+  async mostrarAlerta(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 3000, // Duración de 3 segundos
+      color: 'danger', // Fondo rojo
+      position: 'bottom', // Mostrar en la parte superior
+    });
+    await toast.present();
   }
 
   ngOnInit() {

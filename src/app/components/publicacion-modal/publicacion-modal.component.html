@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="custom-toolbar-comunidad">
-    <ion-buttons slot="start" routerLink="/lesson">
-      <ion-icon class="custom-icon-comunidad" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    <ion-buttons slot="start" routerLink="/comunidad">
+      <ion-icon class="custom-icon-comunidad" slot="icon-only" name="arrow-back-outline" (click)="cerrarModal()"></ion-icon>
     </ion-buttons>  
     <ion-title class="ion-text-center custom-title-comunidad">Nueva Publicación</ion-title>
   </ion-toolbar> 
@@ -9,37 +9,45 @@
 
 
 <ion-content>
-  <!-- Tarjeta de usuario centrado -->
-  <ion-card class="user-card">
-    <ion-card-header class="user-header">
-      Usuario: <strong>{{  nombreUsuario }}</strong>
-    </ion-card-header>
-  </ion-card>
+<!-- Tarjeta de usuario centrado -->
+<ion-card class="user-card">
+  <ion-card-header class="user-header">
+    <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
+    <div>
+      Usuario: <strong>{{ nombreUsuario }}</strong>
+    </div>
+  </ion-card-header>
+</ion-card>
 
-  <!-- Campo para el título -->
-  <ion-item class="custom-item" lines="none">
-    <ion-label position="stacked" class="custom-label">Título</ion-label>
-    <ion-input
-      [(ngModel)]="publicacion.titulo"
-      placeholder=" Escribe el título"
-      class="custom-input"
-    ></ion-input>
-  </ion-item>
+ <!-- Campo para el título -->
+<ion-item class="custom-item" lines="none">
+  <ion-icon slot="start" name="text-outline" class="custom-icon"></ion-icon>
+  <ion-label position="stacked" class="custom-label">Título</ion-label>
+  <ion-input
+    [(ngModel)]="publicacion.titulo"
+    placeholder="Escribe el título"
+    class="custom-input"
+  ></ion-input>
+</ion-item>
 
-  <!-- Campo para el contenido -->
-  <ion-item class="custom-item" lines="none">
-    <ion-label position="stacked" class="custom-label">Contenido</ion-label>
-    <ion-textarea
-      [(ngModel)]="publicacion.contenido"
-      placeholder="Escribe el contenido"
-      class="custom-textarea"
-    ></ion-textarea>
-  </ion-item>
+<!-- Campo para el contenido -->
+<ion-item class="custom-item" lines="none">
+  <ion-icon slot="start" name="document-text-outline" class="custom-icon"></ion-icon>
+  <ion-label position="stacked" class="custom-label">Contenido</ion-label>
+  <ion-textarea
+    [(ngModel)]="publicacion.contenido"
+    placeholder="Escribe el contenido"
+    class="custom-textarea"
+  ></ion-textarea>
+</ion-item>
+
 
   <!-- Botón de publicación -->
   <div class="button-container">
     <ion-button expand="block" (click)="publicar()" class="publish-button">
+      <ion-icon slot="start" name="send-outline"></ion-icon>
       Publicar
     </ion-button>
   </div>
+  
 </ion-content>
