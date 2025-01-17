@@ -4,4 +4,108 @@
     margin-top: 4px;
     margin-left: 8px;
   }
+  :host {
+    ion-content {
+      --padding-start: 16px;
+      --padding-end: 16px;
+    }
+  }
+  
+  /* Estilos para el toolbar */
+  .custom-toolbar-global {
+    --background: var(--ion-color-primary);
+    --color: white;
+  }
+  
+  .custom-title-global {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para el icono */
+  .custom-icon-global {
+    color: white;
+  }
+  
+  /* Tarjeta de usuario centrada */
+  .user-card {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    text-align: center; /* Centra el contenido */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    padding: 16px;
+  }
+  
+  /* Campos personalizados */
+  .custom-item {
+    margin-bottom: 16px;
+  }
+  
+  .custom-label {
+    font-size: 25px; /* Título más grande */
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .custom-input,
+  .custom-textarea {
+    font-size: 18px; /* Texto más grande */
+    margin-top: 8px;
+    padding: 8px;
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  /* Placeholder personalizado */
+  .custom-input::placeholder,
+  .custom-textarea::placeholder {
+    color: #888888;
+    font-style: italic;
+  }
+  
+  /* Botón de publicación */
+  .button-container {
+    margin-top: 24px;
+  }
+  
+ // Botón de publicación con personalización del fondo y texto
+.publish-button {
+  --background: #007bff; /* Fondo del botón */
+  --color: #f4f1f1; /* Color del texto */
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+
+.custom-toolbar-comunidad {
+  --background: var(--comunidad-toolbar-background, #007bff); /* Fondo por defecto */
+  --color: var(--comunidad-toolbar-text-color, #ffffff); /* Texto por defecto */
+
+  /* Opcional: añadir un sombreado o bordes */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+.custom-icon-comunidad {
+  --color: var(--comunidad-icon-color, #ffffff); /* Íconos por defecto */
+}
+
+.custom-title-comunidad {
+  --color: var(--comunidad-title-color, #ffffff); /* Título por defecto */
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
   

@@ -1,24 +1,45 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="custom-toolbar-global">
-    <ion-buttons slot="start" (click)="cerrarModal()">
-      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+  <ion-toolbar class="custom-toolbar-comunidad">
+    <ion-buttons slot="start" routerLink="/lesson">
+      <ion-icon class="custom-icon-comunidad" slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-buttons>  
-    <ion-title class="ion-text-center custom-title-global">Nueva Publicación</ion-title>
+    <ion-title class="ion-text-center custom-title-comunidad">Nueva Publicación</ion-title>
   </ion-toolbar> 
 </ion-header>
 
-<ion-content>
-  <ion-item lines="none">
-    <ion-label>Tu usuarios es: <strong>{{ nombreUsuario }}</strong></ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Título</ion-label>
-    <ion-input [(ngModel)]="publicacion.titulo" placeholder="Escribe el título"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Contenido</ion-label>
-    <ion-textarea [(ngModel)]="publicacion.contenido" placeholder="Escribe el contenido"></ion-textarea>
-  </ion-item>
-  <ion-button expand="block" color="primary" (click)="publicar()">Publicar</ion-button>
-</ion-content>
 
+<ion-content>
+  <!-- Tarjeta de usuario centrado -->
+  <ion-card class="user-card">
+    <ion-card-header class="user-header">
+      Usuario: <strong>{{  nombreUsuario }}</strong>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Campo para el título -->
+  <ion-item class="custom-item" lines="none">
+    <ion-label position="stacked" class="custom-label">Título</ion-label>
+    <ion-input
+      [(ngModel)]="publicacion.titulo"
+      placeholder=" Escribe el título"
+      class="custom-input"
+    ></ion-input>
+  </ion-item>
+
+  <!-- Campo para el contenido -->
+  <ion-item class="custom-item" lines="none">
+    <ion-label position="stacked" class="custom-label">Contenido</ion-label>
+    <ion-textarea
+      [(ngModel)]="publicacion.contenido"
+      placeholder="Escribe el contenido"
+      class="custom-textarea"
+    ></ion-textarea>
+  </ion-item>
+
+  <!-- Botón de publicación -->
+  <div class="button-container">
+    <ion-button expand="block" (click)="publicar()" class="publish-button">
+      Publicar
+    </ion-button>
+  </div>
+</ion-content>
