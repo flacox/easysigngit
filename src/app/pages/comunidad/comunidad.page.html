@@ -2,35 +2,39 @@
   <ion-toolbar class="custom-toolbar-global">
     <ion-buttons slot="start" routerLink="/lesson">
       <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
-    </ion-buttons>  
+    </ion-buttons>
     <ion-title class="ion-text-center custom-title-global">Comunidad</ion-title>
-  </ion-toolbar> 
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Botón flotante para agregar publicaciones -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="abrirModal()">
+    <ion-fab-button class="custom-button" (click)="abrirModal()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
+  <!-- Lista de publicaciones -->
   <ion-list>
     <ion-item *ngFor="let publicacion of publicaciones">
       <ion-card>
         <ion-card-header>
           <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
-          <ion-card-subtitle>{{ publicacion.nombreUsuario }} - {{ publicacion.fecha.toDate() | date: 'short' }}</ion-card-subtitle>
+          <ion-card-subtitle class="username">
+            {{ publicacion.nombreUsuario }} -
+            {{ publicacion.fecha.toDate() | date: 'short' }}
+          </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content class="text-size">
           {{ publicacion.contenido }}
         </ion-card-content>
-        <!-- Botón para abrir el modal de comentarios -->
-        <ion-button expand="block" color="primary" (click)="abrirComentarios(publicacion)">Comentar</ion-button>
+        <!-- Botón para abrir comentarios -->
+        <ion-button expand="block" class="comment-button" (click)="abrirComentarios(publicacion)">
+          <ion-icon slot="start" name="chatbubble-outline"></ion-icon>
+          Comentarios
+        </ion-button>
       </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>
-
-
-
-

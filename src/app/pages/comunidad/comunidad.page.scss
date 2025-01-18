@@ -1,0 +1,38 @@
+/* Estilo para el botón de comentar */
+.comment-button {
+    --background: #ffffff; /* Fondo blanco */
+    --color: #000000; /* Texto negro */
+    border: 2px solid #007bff; /* Bordes azules */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+    text-transform: capitalize; /* Texto en minúsculas con mayúscula inicial */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  
+    ion-icon {
+      font-size: 20px; /* Tamaño del ícono */
+      margin-right: 8px; /* Espacio entre el ícono y el texto */
+    }
+  }
+  
+  /* Ajuste de las tarjetas de las publicaciones */
+  ion-card {
+    width: 100%; /* Ajustar al ancho de la pantalla */
+    margin: 10px auto; /* Espaciado entre las tarjetas */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Clase para el tamaño del texto */
+  .text-size {
+    font-size: 16px; /* Ajustar tamaño del texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+  }
+  /* Estilo para destacar el nombre de usuario */
+.username {
+    font-size: 18px;
+    //font-weight: bold; 
+    color: #1a1919; 
+    margin-bottom: 5px;
+    display: block; /* Asegura que esté en una línea separada */
+  }
+  
+  
