@@ -48,7 +48,7 @@ export class PublicacionModalComponent  implements OnInit {
       this.mostrarAlerta('Por favor, completa todos los campos.');
     }
   }
-
+ 
   async mostrarAlerta(mensaje: string) {
     const toast = await this.toastController.create({
       message: mensaje,

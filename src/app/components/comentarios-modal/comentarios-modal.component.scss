@@ -1,0 +1,134 @@
+
+/* Personaliza el encabezado del modal */
+.custom-toolbar-global {
+    background-color: #7c7c7c;
+    color: white; /* Texto blanco */
+    font-weight: bold;
+  }
+  
+  /* Botón de cerrar en el encabezado */
+  .custom-icon-global {
+    color: white; /* Ícono blanco */
+    font-size: 24px; /* Tamaño más grande */
+  }
+  
+  /* Tarjeta de la publicación */
+  ion-card {
+    margin: 10px; /* Espaciado */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Título y subtítulo de la publicación */
+  ion-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Color del título */
+  }
+  
+  ion-card-subtitle {
+    font-size: 16px;
+    color: #000000; /* Color del subtítulo */
+  }
+  
+  /* Lista de comentarios */
+  ion-list {
+    margin: 10px;
+  }
+  
+  /* Estilo de cada comentario */
+  ion-item {
+    --border-color: #e0e0e0; /* Línea entre elementos */
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  /* Nombre de usuario del comentario */
+  ion-label h2 {
+    font-size: 19px;
+    font-weight: bold;
+    color: #000000; 
+    margin-bottom: 4px;
+  }
+  
+  /* Fecha del comentario */
+  ion-label p small {
+    color: #999; /* Gris claro */
+    font-size: 19px;
+  }
+  
+  /* Texto del comentario */
+  ion-label p {
+    margin-top: 4px;
+    font-size: 18px;
+    color: #0e0d0d;
+  }
+  
+  
+  /* Botón de enviar comentario */
+  ion-button {
+    --background: #007bff; /* Fondo azul */
+    --color: white; /* Texto blanco */
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+
+  //Boton de publicar
+.publish-button {
+    --background: #007bff;  
+    --color: #fff; /* Color del texto e ícono */
+    --padding-start: 16px; /* Espaciado interno para el ícono */
+    --padding-end: 16px; /* Espaciado interno para el texto */
+    font-size: 16px;
+    font-weight: bold;
+  
+    ion-icon {
+      font-size: 20px; /* Tamaño del ícono */
+      margin-right: 8px; /* Espaciado entre ícono y texto */
+    }
+  
+    &:hover {
+      --background: var(--ion-color-primary-shade, #007bff); /* Color de fondo al pasar el mouse */
+    }
+  }
+
+  /* Campo de nuevo comentario */
+ion-item {
+    --min-height: 80px; /* Aumenta el tamaño del contenedor */
+  }
+  
+  ion-textarea {
+    --background: #f9f9f9; /* Fondo gris claro */
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+  
+    /* Personaliza el placeholder */
+    ::placeholder {
+      font-size: 18px; /* Tamaño del texto del placeholder */
+      color: #999; /* Color gris claro */
+    }
+  }
+  
+  /* Ajusta el espaciado entre el campo de texto y otros elementos */
+  ion-item + ion-button {
+    margin-top: 16px; /* Espaciado superior */
+  }
+  
+  /* Estilo para el texto de la publicación */
+.large-text {
+    font-size: 18px; /* Tamaño del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color del texto */
+    word-wrap: break-word; /* Asegura que el texto no desborde */
+    padding: 10px; /* Espaciado interno */
+  }
+  

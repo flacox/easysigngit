@@ -15,7 +15,7 @@
       <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
       <ion-card-subtitle>{{ publicacion.nombreUsuario }} - {{ publicacion.fecha.toDate() | date: 'short' }}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content class="large-text">
       {{ publicacion.contenido }}
     </ion-card-content>
   </ion-card>
@@ -25,8 +25,8 @@
     <ion-item *ngFor="let comentario of comentarios">
       <ion-label>
         <h2>{{ comentario.nombreUsuario }}</h2>
-        <p>{{ comentario.contenido }}</p>
         <p><small>{{ comentario.fecha?.toDate() | date: 'short' }}</small></p>
+        <p>{{ comentario.contenido }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -35,6 +35,11 @@
   <ion-item>
     <ion-textarea [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario"></ion-textarea>
   </ion-item>
-  <ion-button expand="block" color="primary" (click)="agregarComentario()">Enviar</ion-button>
+
+  <ion-button expand="block" class="publish-button" (click)="agregarComentario()">
+    <ion-icon slot="start" name="send-outline"></ion-icon>
+    Enviar
+  </ion-button>
+
 </ion-content>
 

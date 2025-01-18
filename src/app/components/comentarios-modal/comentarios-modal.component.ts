@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { CommentsService } from '../../services/comments.service';
 
 @Component({
@@ -16,7 +16,9 @@ export class ComentariosModalComponent implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private commentsService: CommentsService
+    private toastController: ToastController,
+    private commentsService: CommentsService,
+    private loadingController: LoadingController, 
   ) {}
 
   ngOnInit() {
@@ -35,20 +37,41 @@ export class ComentariosModalComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  agregarComentario() {
+  async  agregarComentario() {
     if (this.nuevoComentario.trim()) {
+      const loading = await this.loadingController.create({
+        message: 'Enviando comentario...', // Mensaje del indicador de carga
+        spinner: 'crescent', // Tipo de spinner
+      });
+
+      await loading.present(); // Mostrar el loading
+
       const comment = {
         contenido: this.nuevoComentario,
         nombreUsuario: this.usuarioLogueado,
         fecha: new Date(), // Fecha actual
       };
   
-      this.commentsService.addComment(this.publicacion.id, comment).then(() => {
+      this.commentsService.addComment(this.publicacion.id, comment).then(async() => {
+        await loading.dismiss(); // Ocultar el loading
         this.nuevoComentario = ''; // Limpia el campo de texto
-      }).catch((error) => {
+        this.mostrarAlerta('Comentario enviado exitosamente.', 'success'); // Mensaje de éxito
+      })
+      .catch((error) => {
         console.error('Error al agregar comentario:', error);
       });
+    } else {
+      this.mostrarAlerta('Por favor, completa todos los campos.', 'danger');
     }
+  }
+  async mostrarAlerta(mensaje: string, color: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 3000, // Duración de 3 segundos
+      color: color, // Color personalizado
+      position: 'bottom', // Mostrar en la parte inferior
+    });
+    await toast.present();
   }
   
 }
