@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ComunidadService {
   private collectionName = 'publicaciones';
+  private comentariosCollection = 'comentarios';
 
   constructor(private firestore: AngularFirestore) { }
 

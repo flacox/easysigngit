@@ -62,7 +62,11 @@ const routes: Routes = [
   {
     path: 'comunidad',
     loadChildren: () => import('./pages/comunidad/comunidad.module').then( m => m.ComunidadPageModule)
+  },  {
+    path: 'gamificacion',
+    loadChildren: () => import('./pages/gamificacion/gamificacion.module').then( m => m.GamificacionPageModule)
   },
+
 
 
 ];

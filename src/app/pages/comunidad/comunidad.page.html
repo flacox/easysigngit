@@ -13,6 +13,10 @@
     <ion-fab-button class="custom-button" (click)="abrirModal()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
+
+    <ion-fab-button class="custom-button" routerLink="/gamificacion">
+      <ion-icon name="trophy-outline"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
 
   <!-- Lista de publicaciones -->
@@ -26,9 +30,10 @@
             {{ publicacion.fecha.toDate() | date: 'short' }}
           </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content class="text-size">
+        <ion-card-content class="text-size"> 
           {{ publicacion.contenido }}
         </ion-card-content>
+        
         <!-- Botón para abrir comentarios -->
         <ion-button expand="block" class="comment-button" (click)="abrirComentarios(publicacion)">
           <ion-icon slot="start" name="chatbubble-outline"></ion-icon>

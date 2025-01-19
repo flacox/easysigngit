@@ -16,10 +16,10 @@ export class ComunidadPage implements OnInit {
   constructor(
     private comunidadService: ComunidadService,
     private modalController: ModalController,
-    private loadingController: LoadingController // Inyección del LoadingController
+    private loadingController: LoadingController 
   ) {}
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
   //abrir comentarios

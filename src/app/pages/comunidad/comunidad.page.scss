@@ -35,4 +35,18 @@
     display: block; /* Asegura que esté en una línea separada */
   }
   
+  ion-button {
+    --background: transparent;
+    --color: #007bff;
+    --padding-start: 10px;
+    font-size: 14px;
   
+    ion-icon {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  
+    &:hover {
+      --color: #0056b3;
+    }
+  }
