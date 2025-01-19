@@ -8,6 +8,19 @@
 </ion-header>
 
 <ion-content>
+
+  <!-- Filtros de Publicaciones -->
+  <ion-segment [(ngModel)]="filtroSeleccionado" (ionChange)="obtenerPublicaciones()" class="custom-segment">
+    <ion-segment-button value="recientes">
+      <ion-label>Recientes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="antiguas">
+      <ion-label>Antiguas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  
+
   <!-- Botón flotante para agregar publicaciones -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="custom-button" (click)="abrirModal()">
@@ -30,10 +43,10 @@
             {{ publicacion.fecha.toDate() | date: 'short' }}
           </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content class="text-size"> 
+        <ion-card-content class="text-size">
           {{ publicacion.contenido }}
         </ion-card-content>
-        
+
         <!-- Botón para abrir comentarios -->
         <ion-button expand="block" class="comment-button" (click)="abrirComentarios(publicacion)">
           <ion-icon slot="start" name="chatbubble-outline"></ion-icon>

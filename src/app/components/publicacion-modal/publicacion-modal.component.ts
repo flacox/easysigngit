@@ -66,6 +66,6 @@ export class PublicacionModalComponent  implements OnInit {
         const user = JSON.parse(storedUser);
         this.nombreUsuario = user.name || 'Invitado';
       }
-    }}
+    }} 
 
 }

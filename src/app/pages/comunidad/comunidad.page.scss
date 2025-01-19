@@ -50,3 +50,31 @@
       --color: #0056b3;
     }
   }
+
+  .custom-segment {
+    --background: #f3f4f6; /* Fondo general del segmento */
+    --indicator-color: #007bff; /* Color del indicador */
+    --indicator-height: 3px; /* Altura del indicador */
+    --button-color: #6b7280; /* Color del texto en estado normal */
+    --button-color-checked: #ffffff; /* Color del texto en estado seleccionado */
+    --button-background: #ffffff; /* Fondo de los botones sin seleccionar */
+    --button-background-checked: #007bff; /* Fondo del botón seleccionado */
+    --border-radius: 20px; /* Bordes redondeados */
+    padding: 5px; /* Reduce el espacio alrededor del segmento */
+    margin: 10px 0; /* Espaciado superior e inferior */
+  
+    ion-segment-button {
+      height: 36px; /* Ajusta la altura del botón */
+      font-size: 14px; /* Tamaño de texto reducido */
+      padding: 0 8px; /* Espaciado interno más pequeño */
+      border-radius: 8px; /* Bordes redondeados del botón */
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+      transition: background-color 0.3s ease, color 0.3s ease;
+  
+      ion-label {
+        font-weight: 500; /* Peso del texto */
+      }
+    }
+  }
+  
+  

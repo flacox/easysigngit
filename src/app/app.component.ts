@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,8 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  @Input() nombreUsuario: string = 'Invitado';
+
   public appPages = [
     { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
     { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
@@ -18,7 +20,16 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private menuController: MenuController) {}
 
+
   closeMenu(){
     this.menuController.close();
   }
+  ngOnInit() {
+    if (!this.nombreUsuario || this.nombreUsuario === 'Invitado') {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const user = JSON.parse(storedUser);
+        this.nombreUsuario = user.name || 'Invitado';
+      }
+    }}
 }

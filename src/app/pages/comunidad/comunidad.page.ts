@@ -12,14 +12,16 @@ import { ComentariosModalComponent } from '../../components/comentarios-modal/co
 })
 export class ComunidadPage implements OnInit {
   publicaciones: any[] = [];
+  filtroSeleccionado: string = 'recientes'; // Valor predeterminado (publicaciones más recientes)
+  usuarioFiltrado: string = '';
 
   constructor(
     private comunidadService: ComunidadService,
     private modalController: ModalController,
-    private loadingController: LoadingController 
-  ) {}
+    private loadingController: LoadingController
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
   //abrir comentarios
@@ -30,7 +32,7 @@ export class ComunidadPage implements OnInit {
     });
     await modal.present();
   }
-  
+
 
   async ionViewWillEnter() {
     // Mostrar el loading cuando se accede a la pantalla
@@ -63,11 +65,26 @@ export class ComunidadPage implements OnInit {
     });
     await modal.present();
   }
-  
 
+  // Obtener publicaciones con el filtro seleccionado
   obtenerPublicaciones() {
-    this.comunidadService.getPublicaciones().subscribe((data) => {
-      this.publicaciones = data;
-    });
+    this.comunidadService.getPublicacionesConFiltro(this.filtroSeleccionado, this.usuarioFiltrado).subscribe(
+      (data) => {
+        this.publicaciones = data;
+      },
+      (error) => {
+        alert('Hubo un error al cargar las publicaciones.');
+        console.error(error);
+      }
+    );
   }
+
+  // Cambiar el filtro
+  cambiarFiltro(filtro: string) {
+    this.filtroSeleccionado = filtro;
+    this.usuarioFiltrado = ''; // Reiniciar filtro de usuario
+    this.obtenerPublicaciones(); // Recargar publicaciones con el filtro nuevo
+  }
+
+
 }

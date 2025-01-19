@@ -30,4 +30,23 @@ export class ComunidadService {
       .toPromise()
       .then(snapshot => snapshot.size);
   }
+
+  // Filtrar las publicaciones por criterio
+getPublicacionesConFiltro(filtro: string, usuario?: string): Observable<any[]> {
+  let ref = this.firestore.collection(this.collectionName, ref => {
+    switch(filtro) {
+      case 'recientes':
+        return ref.orderBy('fecha', 'desc');
+      case 'antiguas':
+        return ref.orderBy('fecha', 'asc');
+      case 'usuario':
+        return ref.where('nombreUsuario', '==', usuario).orderBy('fecha', 'desc');
+      default:
+        return ref.orderBy('fecha', 'desc'); // Por defecto, más recientes
+    }
+  }).valueChanges({ idField: 'id' });
+
+  return ref;
+}
+
 }
