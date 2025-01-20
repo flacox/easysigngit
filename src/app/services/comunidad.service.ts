@@ -11,42 +11,47 @@ export class ComunidadService {
 
   constructor(private firestore: AngularFirestore) { }
 
-   // Obtener todas las publicaciones
-   getPublicaciones(): Observable<any[]> {
+  // Obtener todas las publicaciones
+  getPublicaciones(): Observable<any[]> {
     return this.firestore
       .collection(this.collectionName, (ref) => ref.orderBy('fecha', 'desc'))
       .valueChanges({ idField: 'id' });
   }
 
   // Agregar nueva publicación
-  addPublicacion(publicacion: { nombreUsuario: string; titulo: string; contenido: string; fecha: Date }) {
+  addPublicacion(publicacion: {
+    nombreUsuario: string;
+    titulo: string;
+    contenido: string;
+    fecha: Date;
+    etiquetas: string[];
+  }) {
     return this.firestore.collection(this.collectionName).add(publicacion);
-  }
-  // comentarios.
-  getComentariosCount(publicacionId: string): Promise<number> {
-    return this.firestore
-      .collection('comentarios', ref => ref.where('publicacionId', '==', publicacionId))
-      .get()
-      .toPromise()
-      .then(snapshot => snapshot.size);
   }
 
   // Filtrar las publicaciones por criterio
-getPublicacionesConFiltro(filtro: string, usuario?: string): Observable<any[]> {
-  let ref = this.firestore.collection(this.collectionName, ref => {
-    switch(filtro) {
-      case 'recientes':
-        return ref.orderBy('fecha', 'desc');
-      case 'antiguas':
-        return ref.orderBy('fecha', 'asc');
-      case 'usuario':
-        return ref.where('nombreUsuario', '==', usuario).orderBy('fecha', 'desc');
-      default:
-        return ref.orderBy('fecha', 'desc'); // Por defecto, más recientes
-    }
-  }).valueChanges({ idField: 'id' });
+  getPublicacionesConFiltro(filtro: string, usuario?: string): Observable<any[]> {
+    let ref = this.firestore.collection(this.collectionName, ref => {
+      switch (filtro) {
+        case 'recientes':
+          return ref.orderBy('fecha', 'desc');
+        case 'antiguas':
+          return ref.orderBy('fecha', 'asc');
+        case 'usuario':
+          return ref.where('nombreUsuario', '==', usuario).orderBy('fecha', 'desc');
+        default:
+          return ref.orderBy('fecha', 'desc'); // Por defecto, más recientes
+      }
+    }).valueChanges({ idField: 'id' });
 
-  return ref;
-}
+    return ref;
+  }
+
+  // Filtrar las publicaciones por etiqueta
+  getPublicacionesPorEtiqueta(etiqueta: string): Observable<any[]> {
+    return this.firestore
+      .collection(this.collectionName, (ref) => ref.where('etiquetas', 'array-contains', etiqueta))
+      .valueChanges({ idField: 'id' });
+  }
 
 }

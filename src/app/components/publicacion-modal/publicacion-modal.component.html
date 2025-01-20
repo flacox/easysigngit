@@ -41,6 +41,19 @@
   ></ion-textarea>
 </ion-item>
 
+  <!-- Sección de selección de etiquetas -->
+  <ion-item class="custom-item" lines="none">
+    <ion-label class="custom-label">Seleccionar Etiquetas</ion-label>
+  </ion-item>
+  <div class="etiquetas-container">
+    <ion-chip
+      *ngFor="let etiqueta of etiquetasDisponibles"
+      [color]="publicacion.etiquetas.includes(etiqueta) ? 'primary' : 'medium'"
+      (click)="toggleEtiqueta(etiqueta)"
+    >
+      {{ etiqueta }}
+    </ion-chip>
+  </div>
 
   <!-- Botón de publicación -->
   <div class="button-container">

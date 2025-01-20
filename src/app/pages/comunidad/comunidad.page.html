@@ -18,9 +18,23 @@
       <ion-label>Antiguas</ion-label>
     </ion-segment-button>
   </ion-segment>
-  
-  
 
+ <!-- Filtrar por etiqueta -->
+<ion-item lines="none" class="filtro-etiqueta-container">
+  <ion-label class="filtro-etiqueta-label">Filtrar por etiqueta</ion-label>
+  <ion-select 
+    [(ngModel)]="filtroEtiqueta" 
+    (ionChange)="obtenerPublicaciones()" 
+    interface="popover" 
+    class="filtro-etiqueta-select"
+  >
+    <ion-select-option value="">Todas</ion-select-option>
+    <ion-select-option *ngFor="let etiqueta of ['Educación', 'Tutorial', 'Pregunta', 'Experiencia', 'Consejo']" [value]="etiqueta">
+      {{ etiqueta }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+  
   <!-- Botón flotante para agregar publicaciones -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="custom-button" (click)="abrirModal()">
@@ -46,6 +60,13 @@
         <ion-card-content class="text-size">
           {{ publicacion.contenido }}
         </ion-card-content>
+
+        <!-- Mostrar etiquetas -->
+        <div class="etiquetas-publicacion">
+          <ion-chip *ngFor="let etiqueta of publicacion.etiquetas" color="primary">
+            {{ etiqueta }}
+          </ion-chip>
+        </div>
 
         <!-- Botón para abrir comentarios -->
         <ion-button expand="block" class="comment-button" (click)="abrirComentarios(publicacion)">

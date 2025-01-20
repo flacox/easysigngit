@@ -7,17 +7,21 @@ import { ComunidadService } from '../../services/comunidad.service';
   templateUrl: './publicacion-modal.component.html',
   styleUrls: ['./publicacion-modal.component.scss'],
 })
-export class PublicacionModalComponent  implements OnInit {
+export class PublicacionModalComponent implements OnInit {
   @Input() nombreUsuario: string = 'Invitado';
 
   publicacion = {
     titulo: '',
     contenido: '',
     fecha: new Date(),
+    etiquetas: [] as string[],
   };
 
+  etiquetasDisponibles: string[] = ['Educación', 'Tutorial', 'Pregunta', 'Experiencia', 'Consejo'];
+
+
   constructor(
-    private modalController: ModalController, 
+    private modalController: ModalController,
     private comunidadService: ComunidadService,
     private toastController: ToastController,
     private loadingController: LoadingController) { }
@@ -29,13 +33,13 @@ export class PublicacionModalComponent  implements OnInit {
   async publicar() {
     if (this.publicacion.titulo && this.publicacion.contenido) {
 
-            // Mostrar el loading
+      // Mostrar el loading
       const loading = await this.loadingController.create({
         message: 'Publicando...',
       });
       await loading.present();
 
-            // Guardar la publicación en Firebase
+      // Guardar la publicación en Firebase
       this.comunidadService.addPublicacion({
         ...this.publicacion,
         nombreUsuario: this.nombreUsuario,
@@ -43,12 +47,22 @@ export class PublicacionModalComponent  implements OnInit {
         loading.dismiss(); // Cerrar el loading
         this.cerrarModal();
       })
-      ;
+        ;
     } else {
       this.mostrarAlerta('Por favor, completa todos los campos.');
     }
   }
- 
+
+  toggleEtiqueta(etiqueta: string) {
+    if (this.publicacion.etiquetas.includes(etiqueta)) {
+      // Si la etiqueta ya está seleccionada, la eliminamos
+      this.publicacion.etiquetas = this.publicacion.etiquetas.filter((e) => e !== etiqueta);
+    } else {
+      // Si no está seleccionada, la añadimos
+      this.publicacion.etiquetas.push(etiqueta);
+    }
+  }
+
   async mostrarAlerta(mensaje: string) {
     const toast = await this.toastController.create({
       message: mensaje,
@@ -66,6 +80,7 @@ export class PublicacionModalComponent  implements OnInit {
         const user = JSON.parse(storedUser);
         this.nombreUsuario = user.name || 'Invitado';
       }
-    }} 
+    }
+  }
 
 }

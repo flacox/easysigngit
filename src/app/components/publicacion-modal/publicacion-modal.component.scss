@@ -152,4 +152,16 @@
   }
 }
 
+
+.etiquetas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+ion-chip {
+  cursor: pointer;
+}
+
   
