@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/lesson3">
+      <ion-button>Back</ion-button>
+    </ion-buttons>
+    <ion-title>Test de Preguntas III</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding text-test-content">
+  <div class="question-container">
+    <h2>{{ questions[currentQuestionIndex]?.question }}</h2>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="selectedOption">
+        <ion-item *ngFor="let option of questions[currentQuestionIndex]?.options">
+          <ion-label>{{ option }}</ion-label>
+          <ion-radio slot="start" [value]="option"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" color="primary" (click)="submitAnswer()">Responder</ion-button>
+  </div>
+</ion-content>

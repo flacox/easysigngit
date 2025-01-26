@@ -1,0 +1,33 @@
+<ion-content class="ion-padding login-page">
+  <div class="logo-container">
+    <img src="assets/img/logo.PNG" alt="EasySign Logo" class="app-logo" />
+    <h1 class="app-title">EasySign</h1>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form" (keypress.enter)="submit()">
+
+    <app-login-input autocomplete="email" type="email" [control]="form.controls.email" label="Correo electrónico" icon="mail-outline" ></app-login-input>
+
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+      <div *ngIf="form.controls.email.errors?.['required']"> El correo es requerido </div>
+      <div *ngIf="form.controls.email.errors?.['email']"> Ingrese un correo valido </div>
+    </div>
+
+    <app-login-input type="password" label="Contraseña" icon="lock-closed-outline" [control]="form.controls.password" ></app-login-input>
+
+    <ion-button expand="block" class="login-button submit " type="submit" [disabled]="form.invalid">Ingresar</ion-button>
+
+    <ion-text class="forgot-password">
+      <p>¿Olvidaste tu contraseña? <a href="#" routerLink="forgot-password">Recuperar</a></p>
+    </ion-text>
+
+    <div class="signup-container">
+      <p>¿No tienes cuenta? <a href="#" routerLink="sign-up">Regístrate aquí</a></p>
+    </div>
+
+    <div class="signup-container">
+      <p>¿Deseas provar? <a href="#" (click)="submitGuest()">Entra como Invitado</a></p>
+    </div>
+  </form>
+
+</ion-content>

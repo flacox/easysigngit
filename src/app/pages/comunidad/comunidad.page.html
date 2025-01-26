@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/lesson">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center custom-title-global">Comunidad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Filtros de Publicaciones -->
+  <ion-segment [(ngModel)]="filtroSeleccionado" (ionChange)="obtenerPublicaciones()" class="custom-segment">
+    <ion-segment-button value="recientes">
+      <ion-label>Recientes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="antiguas">
+      <ion-label>Antiguas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+ <!-- Filtrar por etiqueta -->
+<ion-item lines="none" class="filtro-etiqueta-container">
+  <ion-label class="filtro-etiqueta-label">Filtrar por etiqueta</ion-label>
+  <ion-select 
+    [(ngModel)]="filtroEtiqueta" 
+    (ionChange)="obtenerPublicaciones()" 
+    interface="popover" 
+    class="filtro-etiqueta-select"
+  >
+    <ion-select-option value="">Todas</ion-select-option>
+    <ion-select-option *ngFor="let etiqueta of ['Educación', 'Tutorial', 'Pregunta', 'Experiencia', 'Consejo']" [value]="etiqueta">
+      {{ etiqueta }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+  
+  <!-- Botón flotante para agregar publicaciones -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="custom-button" (click)="abrirModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button class="custom-button" routerLink="/gamificacion">
+      <ion-icon name="trophy-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Lista de publicaciones -->
+  <ion-list>
+    <ion-item *ngFor="let publicacion of publicaciones">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
+          <ion-card-subtitle class="username">
+            {{ publicacion.nombreUsuario }} -
+            {{ publicacion.fecha.toDate() | date: 'short' }}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="text-size">
+          {{ publicacion.contenido }}
+        </ion-card-content>
+
+        <!-- Mostrar etiquetas -->
+        <div class="etiquetas-publicacion">
+          <ion-chip *ngFor="let etiqueta of publicacion.etiquetas" color="primary">
+            {{ etiqueta }}
+          </ion-chip>
+        </div>
+
+        <!-- Botón para abrir comentarios -->
+        <ion-button expand="block" class="comment-button" (click)="abrirComentarios(publicacion)">
+          <ion-icon slot="start" name="chatbubble-outline"></ion-icon>
+          Comentarios
+        </ion-button>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

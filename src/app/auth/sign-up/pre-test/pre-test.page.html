@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-title class="ion-text-center custom-title-global">Antes de comenzar...</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding test-content">
+
+  <h4 class="ion-text-center" style="font-weight: bold;">Gracias por confiar en EasySign, la aplicación ideal para aprender sobre la lengua de señas!</h4>
+  <p style="color: brown; font-weight: bold;">Antes de entrar, queremos realizarte unas breves preguntas:</p>
+  <div class="question-container">
+    <h6>¿Qué tanto te gusta aprender el lenguaje de señas?</h6>
+
+    <form [formGroup]="form" >
+      <ion-list>
+        <ion-radio-group formControlName="interes" >
+          <ion-item>
+            <ion-label>Totalmente interesado</ion-label>
+            <ion-radio slot="start" value="Totalmente interesado"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Bastante</ion-label>
+            <ion-radio slot="start" value="Bastante"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Un poco</ion-label>
+            <ion-radio slot="start" value="Un poco"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>No estoy interesado realmente</ion-label>
+            <ion-radio slot="start" value="No estoy interesado realmente"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      
+      
+      <h6>¿Por qué te gusta aprender lenguaje de señas?</h6>
+      <ion-item class="custom-input">
+        <ion-input type="text" formControlName="aprender" placeholder="Debido a..."></ion-input>
+      </ion-item>
+
+      <div class="validators" *ngIf="form.controls.aprender.errors && form.controls.aprender.touched">
+        <div *ngIf="form.controls.aprender.errors?.['required']"> Debes responder esta pregunta </div>
+      </div>
+
+      <h6>¿Cómo supiste de esta aplicación?</h6>
+      <ion-item class="custom-input">
+        <ion-input type="text" formControlName="conocerApp" placeholder="La conocí por..."></ion-input>
+      </ion-item>
+
+      <div class="validators" *ngIf="form.controls.conocerApp.errors && form.controls.conocerApp.touched">
+        <div *ngIf="form.controls.conocerApp.errors?.['required']"> Debes responder esta pregunta </div>
+      </div>
+      
+
+    </form>
+    
+
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" 
+    color="primary" (click)="submit()" type="submit" [disabled]="form.invalid" >Enviar Respuesta</ion-button>
+  </div>
+</ion-content>

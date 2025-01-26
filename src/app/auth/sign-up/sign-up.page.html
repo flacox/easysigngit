@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/auth">
+      <!-- <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon> -->
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <!-- <ion-title class="ion-text-center">Registrate Aqui</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form" (keypress.enter)="submit()">
+
+      <img src="assets/img/logo.PNG" alt="EasySign Logo" class="logo" />
+      <h1 class="">Registrate Aqui</h1>
+
+      <app-login-input
+      autocomplete="name"
+      type="text"
+      label="Nombre"
+      icon="person-outline"
+      [control]="form.controls.name"
+      ></app-login-input>
+
+      <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+        <div *ngIf="form.controls.name.errors?.['required']"> El nombre es requerido </div>
+        <div *ngIf="form.controls.name.errors?.['minLength']"> Ingrese un nombre mayor a 3 caracteres </div>
+
+
+      </div>
+
+      <app-login-input
+      autocomplete="email"
+      type="email"
+      label="Correo electrónico"
+      icon="mail-outline"
+      [control]="form.controls.email"
+      ></app-login-input>
+
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']"> El correo es requerido </div>
+        <div *ngIf="form.controls.email.errors?.['email']"> Ingrese un correo valido </div>
+
+      </div>
+
+      <app-login-input
+      type="password"
+      label="Contraseña"
+      icon="lock-closed-outline"
+      [control]="form.controls.password"
+      ></app-login-input>
+
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']"> La contraseña es requerida </div>
+      </div>
+
+      
+      <ion-button type="submit" class="ion-margin-top"  color="primary" 
+      expand="block" mode="ios" fill="solid" [disabled]="form.invalid">
+        Registrarse
+      </ion-button>
+      
+    </form>
+  </div>
+</ion-content>

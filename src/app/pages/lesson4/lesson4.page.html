@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/lesson">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons> 
+    <ion-title class="ion-text-center custom-title-global">Leccion 4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1 class="texto-leccion">Lección sobre los números básicos</h1>
+  <div class="videos-container">
+    <div *ngFor="let video of videos; let i = index" class="video-wrapper">
+      <!-- Contenedor del Reproductor -->
+      <div class="video-frame">
+        <div [id]="'player' + i"></div>
+      </div>
+
+      <!-- Texto Debajo del Video -->
+      <p class="video-description">{{ video.description }}</p>
+    </div>
+  </div>
+
+</ion-content>
+ 

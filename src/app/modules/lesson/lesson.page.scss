@@ -1,0 +1,29 @@
+.features-container {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+
+    ion-card {
+      margin: 10px auto;
+      width: 90%;
+    }
+
+    ion-card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0056b3;
+    }
+
+    ion-card-content {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+  ion-icon.custom-color {
+    color: #0004fa; /* Cambia el color a naranja */
+  }
+  .custom-icon {
+    color: #0004fa; /* Cambia a tu color preferido, aquí es naranja */
+    font-size: 25px; /* Puedes ajustar el tamaño del ícono si lo deseas */
+  }
+  

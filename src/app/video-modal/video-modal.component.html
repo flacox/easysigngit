@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title> {{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="video-container">
+    <video controls autoplay [src]="videoUrl" style="width: 100%; height: auto;"></video>
+  </div>
+  <div class="description-container">
+    <p>{{ videoDescription }}</p>
+  </div>
+</ion-content>

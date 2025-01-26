@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/comunidad">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center custom-title-global">Usuarios Destacados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Encabezado visual -->
+  <div class="top-banner">
+    <ion-icon name="trophy-outline" class="trophy-icon"></ion-icon>
+    <h1 class="gamification-title">¡Top 10 Publicadores!</h1>
+  </div>
+
+  <!-- Top 10 Publicaciones -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Top 10 Usuarios con más Publicaciones</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let usuario of topPublicaciones; let i = index" class="top-item">
+        <ion-label>
+          <h2 class="username">#{{ i + 1 }} - {{ usuario.nombreUsuario }}</h2>
+          <p class="publicaciones-count">Total Publicaciones: {{ usuario.total }}</p>
+        </ion-label>
+        <ion-icon [name]="getMedalIcon(i)" slot="end" class="medal-icon"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+
+

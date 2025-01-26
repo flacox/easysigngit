@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/lesson">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center custom-title-global">Test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding test-content">
+  <div class="video-container">
+    <video width="100%" controls>
+      <source src="assets/videos/lesson5.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div>
+
+  <div class="question-container">
+    <h2>¿Qué palabra se representa en el video?</h2>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="selectedOption">
+        <ion-item>
+          <ion-label>Hello</ion-label>
+          <ion-radio slot="start" value="A"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>This is fun</ion-label>
+          <ion-radio slot="start" value="B"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>This is so fun</ion-label>
+          <ion-radio slot="start" value="C"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>I do not like it</ion-label>
+          <ion-radio slot="start" value="D"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" color="primary" (click)="submitAnswer()">Enviar Respuesta</ion-button>
+  </div>
+</ion-content>
