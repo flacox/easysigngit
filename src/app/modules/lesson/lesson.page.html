@@ -1,5 +1,11 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/lesson">
+    </ion-buttons>  
+    <ion-title class="ion-text-center custom-title-global">Explorador De Lecciones</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-button slot="start" fill="clear" class="logout-button" (click)="signOut()"><ion-icon name="log-out-outline"></ion-icon></ion-button>
 <ion-content>
   <div class="features-container">
   <ion-card>
@@ -9,7 +15,6 @@
          Inicio
       </ion-card-title>
     </ion-card-header>
-
   </ion-card>
 
   <ion-card>

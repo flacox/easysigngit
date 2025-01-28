@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { initializeApp } from 'firebase/app';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -16,6 +17,7 @@ import { PublicacionModalComponent } from './components/publicacion-modal/public
 import { FormsModule } from '@angular/forms';
 
 import { ComentariosModalComponent } from './components/comentarios-modal/comentarios-modal.component';
+import { FirebaseService } from './services/firebase.service';
 
 
 
@@ -45,4 +47,6 @@ const app = initializeApp(firebaseConfig);
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

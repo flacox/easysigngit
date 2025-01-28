@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,10 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(private menuController: MenuController) {}
+  constructor(private menuController: MenuController) { }
 
 
-  closeMenu(){
+  closeMenu() {
     this.menuController.close();
   }
   ngOnInit() {
@@ -31,5 +32,12 @@ export class AppComponent {
         const user = JSON.parse(storedUser);
         this.nombreUsuario = user.name || 'Invitado';
       }
-    }}
+    }
+  }
+
+  firebaseService = inject(FirebaseService);
+
+  signOut() {
+    this.firebaseService.signOut();
+  }
 }
