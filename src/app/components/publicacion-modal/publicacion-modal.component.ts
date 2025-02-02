@@ -72,14 +72,14 @@ export class PublicacionModalComponent implements OnInit {
     });
     await toast.present();
   }
-
+ 
   ngOnInit() {
     if (!this.nombreUsuario || this.nombreUsuario === 'Invitado') {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
         const user = JSON.parse(storedUser);
         this.nombreUsuario = user.name || 'Invitado';
-      }
+      } 
     }
   }
 

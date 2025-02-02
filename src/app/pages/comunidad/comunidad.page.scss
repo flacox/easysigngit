@@ -47,7 +47,7 @@
     }
   
     &:hover {
-      --color: #0056b3;
+      --color: #007bff;
     }
   }
 
@@ -121,3 +121,19 @@ ion-select::part(icon) {
 }
 
   
+
+.custom-toolbar-global {
+  --background: #007aff; /* Color de fondo */
+  --color: #333; /* Color del texto */
+}
+
+.custom-title-global {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.custom-icon-global {
+  font-size: 24px;
+  color: #ffffff; /* Azul estilo iOS */
+}

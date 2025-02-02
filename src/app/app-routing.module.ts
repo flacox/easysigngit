@@ -82,6 +82,10 @@ const routes: Routes = [
     path: 'home-quiz',
     loadChildren: () => import('./quizzes/home-quiz/home-quiz.module').then( m => m.HomeQuizPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 
 
 

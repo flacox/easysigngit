@@ -1,11 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar class="custom-toolbar-global">
     <ion-buttons slot="start" routerLink="/lesson">
       <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-title class="ion-text-center custom-title-global">Comunidad</ion-title>
+
+    <ion-title class="custom-title-global">Comunidad</ion-title>
+
+    <ion-buttons slot="end" routerLink="/profile">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
 
@@ -59,7 +65,7 @@
         </ion-card-header>
         <ion-card-content class="text-size">
           {{ publicacion.contenido }}
-        </ion-card-content>
+        </ion-card-content> 
 
         <!-- Mostrar etiquetas -->
         <div class="etiquetas-publicacion">

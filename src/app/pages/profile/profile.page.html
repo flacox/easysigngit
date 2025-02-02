@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-buttons slot="start" routerLink="/comunidad">
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="custom-title-global">Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="profile-avatar">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </div>
+      <ion-card-title>{{ usuario.name }}</ion-card-title>
+      <ion-card-subtitle>{{ usuario.email }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-item-divider>
+    <ion-label>Mis Publicaciones</ion-label>
+  </ion-item-divider>
+
+  <ng-container *ngIf="publicacionesUsuario.length > 0; else emptyState">
+    <ion-list>
+      <ion-item *ngFor="let publicacion of publicacionesUsuario" lines="none">
+        <ion-card class="publicacion-card">
+          <ion-card-header>
+            <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
+            <ion-card-subtitle>
+              {{ publicacion.fecha.toDate() | date: 'short' }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ publicacion.contenido }}
+            <div class="etiquetas-container">
+              <ion-chip *ngFor="let etiqueta of publicacion.etiquetas">
+                {{ etiqueta }}
+              </ion-chip>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <div class="empty-state">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <h3>No hay publicaciones todavía</h3>
+      <p>¡Comparte tu primera publicación en la comunidad!</p>
+    </div>
+  </ng-template>
+</ion-content>

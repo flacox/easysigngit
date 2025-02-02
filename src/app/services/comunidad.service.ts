@@ -54,4 +54,12 @@ export class ComunidadService {
       .valueChanges({ idField: 'id' });
   }
 
+  getPublicacionesPorUsuario(usuario: string): Observable<any[]> {
+    return this.firestore
+      .collection(this.collectionName, (ref) =>
+        ref.where('nombreUsuario', '==', usuario).orderBy('fecha', 'desc')
+      )
+      .valueChanges({ idField: 'id' });
+  }  
+
 }
