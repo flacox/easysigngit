@@ -49,11 +49,12 @@ const routes: Routes = [
   },
   {
     path: 'lesson4',
-    loadChildren: () => import('./pages/lesson4/lesson4.module').then( m => m.Lesson4PageModule)
+    loadChildren: () => import('./pages/lesson4/lesson4.module').then( m => m.Lesson4PageModule),
+    data: { cache: false }, // Desactiva la cache para esta pagina
   },
   {
     path: 'lesson5',
-    loadChildren: () => import('./pages/lesson5/lesson5.module').then( m => m.Lesson5PageModule)
+    loadChildren: () => import('./pages/lesson5/lesson5.module').then( m => m.Lesson5PageModule),
   },
   {
     path: 'demo',
@@ -62,7 +63,8 @@ const routes: Routes = [
   {
     path: 'comunidad',
     loadChildren: () => import('./pages/comunidad/comunidad.module').then( m => m.ComunidadPageModule)
-  },  {
+  },
+  {
     path: 'gamificacion',
     loadChildren: () => import('./pages/gamificacion/gamificacion.module').then( m => m.GamificacionPageModule)
   },

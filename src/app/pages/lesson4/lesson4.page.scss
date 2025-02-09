@@ -8,19 +8,17 @@
 .video-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 700px; /* Limita el ancho máximo del contenedor */
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .video-frame {
   width: 100%;
-  aspect-ratio: 13 / 10; /* Relación de aspecto estándar de YouTube */
-  border-radius: 16px; /* Bordes redondeados */
-  overflow: hidden; /* Oculta desbordamientos para bordes redondeados */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para un efecto flotante */
+  max-width: 600px;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 iframe {
@@ -32,18 +30,18 @@ iframe {
     border: none;
   }
 
-.video-description {
-  margin-top: 12px;
-  font-size: 18px;
-  text-align: center;
-  line-height: 1.5; /* Mejor separación entre líneas */
-  font-weight: 500; /* Hace el texto un poco más resaltado */
-  font-family: 'Times New Roman', Times, serif; /* Estilo de letra solicitado */
-  color: var(--ion-color-dark, #000000); /* Color de texto */
-  padding: 0 16px; /* Añade algo de espacio lateral */
-  border-top: 1px solid #0400ff; /* Línea sutil encima del texto */
-  padding-top: 12px; /* Espaciado adicional encima del texto */
-}
+  .video-description {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: #000000; /* Un tono oscuro pero suave para mejor legibilidad */
+    margin-top: 10px;
+    padding: 0 15px;
+    border-top: 1px solid #175ef7e3; 
+    padding-top: 12px; 
+    line-height: 1.5; /* Espaciado entre líneas */
+    font-style: italic; /* Le da un toque elegante */
+  }
 
 ion-loading {
     --background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
@@ -51,3 +49,10 @@ ion-loading {
     --message-color: #ffffff;        /* Color del texto del mensaje */
   }
   
+  .texto-leccion {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color:  #000000;
+    margin-bottom: 15px;
+  }
