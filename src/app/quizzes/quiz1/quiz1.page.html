@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" routerLink="/lesson1">
+    <ion-buttons slot="start" (click)="irAPantalla('/lesson1')">
       <ion-button>Back</ion-button>
     </ion-buttons>
     <ion-title>Quiz de Preguntas I</ion-title>
   </ion-toolbar>
 </ion-header>
-
+ 
 <ion-content class="ion-padding text-test-content">
   <div class="question-container">
     <h2>{{ questions[currentQuestionIndex]?.question }}</h2>

@@ -9,15 +9,15 @@
       Aprende lenguaje de señas de manera fácil y divertida con lecciones
       interactivas, imagenes y videos cortos. ¡Comienza a comunicarte hoy!
     </p>
-    <ion-button expand="block" class="custom-button stilos" routerLink="/comunidad" fill="solid">
+    <ion-button expand="block" class="custom-button stilos" (click)="irAPantalla('/comunidad')" fill="solid">
       <ion-icon slot="start" name="people-outline"></ion-icon>
       Comunidad
     </ion-button> 
   </div>
-
+ 
   <div class="features-container">
     <ion-card>
-      <ion-card-header  routerLink="/lesson">
+      <ion-card-header (click)="irAPantalla('/lesson')">
         <ion-card-title >Explora las lecciones</ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -26,7 +26,7 @@
     </ion-card>
 
     <ion-card>
-      <ion-card-header routerLink="/lesson3">
+      <ion-card-header (click)="irAPantalla('/lesson3')">
         <ion-card-title>Aprendizaje interactivo</ion-card-title>
       </ion-card-header>
       <ion-card-content>

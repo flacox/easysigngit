@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
@@ -9,6 +10,12 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./forgot-password.page.scss'],
 })
 export class ForgotPasswordPage implements OnInit {
+
+    constructor(private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email])

@@ -40,7 +40,11 @@ export class Quiz2Page{
 
   constructor(private alertController: AlertController, private navController: NavController) { }
 
-  async submitAnswer() {
+  irAPantalla(ruta: string) {
+    this.navController.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
+
+  async submitAnswer() { 
     if (!this.selectedOption) {
       const alert = await this.alertController.create({
         header: 'Atención',

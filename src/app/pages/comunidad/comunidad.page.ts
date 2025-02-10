@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, LoadingController, ToastController } from '@ionic/angular';
+import { ModalController, LoadingController, ToastController, NavController } from '@ionic/angular';
 import { ComunidadService } from '../../services/comunidad.service';
 import { PublicacionModalComponent } from '../../components/publicacion-modal/publicacion-modal.component';
 import { ComentariosModalComponent } from '../../components/comentarios-modal/comentarios-modal.component';
 
-
+ 
 @Component({
   selector: 'app-comunidad',
   templateUrl: './comunidad.page.html',
@@ -21,10 +21,14 @@ export class ComunidadPage implements OnInit {
     private comunidadService: ComunidadService,
     private modalController: ModalController,
     private loadingController: LoadingController,
-    private toastController: ToastController
-
+    private toastController: ToastController,
+    private navCtrl: NavController
   ) { }
 
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
+  
   ngOnInit() {
   }
 

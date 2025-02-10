@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="custom-toolbar-global">
-    <ion-buttons slot="start" routerLink="/lesson">
+    <ion-buttons slot="start">
     </ion-buttons>  
     <ion-title class="ion-text-center custom-title-global">Explorador De Lecciones</ion-title>
   </ion-toolbar>
@@ -9,16 +9,16 @@
 <ion-content>
   <div class="features-container">
   <ion-card>
-    <ion-card-header  routerLink="/home">
+    <ion-card-header  (click)="irAPantalla('/home')">
       <ion-card-title>
         <ion-icon name="home" class="custom-icon"></ion-icon>
          Inicio
       </ion-card-title>
     </ion-card-header>
-  </ion-card>
+  </ion-card> 
 
   <ion-card>
-    <ion-card-header  routerLink="/lesson1">
+    <ion-card-header  (click)="irAPantalla('/lesson1')">
       <ion-card-title>Leccion 1</ion-card-title>
     </ion-card-header>
     <ion-card-content>
@@ -27,7 +27,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/lesson2">
+    <ion-card-header  (click)="irAPantalla('/lesson2')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Leccion 2</ion-card-title>
     </ion-card-header>
@@ -37,7 +37,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/lesson3">
+    <ion-card-header  (click)="irAPantalla('/lesson3')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Leccion 3</ion-card-title>
     </ion-card-header>
@@ -47,7 +47,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/lesson4">
+    <ion-card-header  (click)="irAPantalla('/lesson4')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Leccion 4</ion-card-title>
     </ion-card-header>
@@ -57,7 +57,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/lesson5">
+    <ion-card-header  (click)="irAPantalla('/lesson5')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Leccion 5</ion-card-title>
     </ion-card-header>
@@ -67,7 +67,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/home-quiz">
+    <ion-card-header (click)="irAPantalla('/home-quiz')">
       <ion-icon aria-hidden="true" name="home" slot="end"></ion-icon>
       <ion-card-title>Quizzes</ion-card-title>
     </ion-card-header>

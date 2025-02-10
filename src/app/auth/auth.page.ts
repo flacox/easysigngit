@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from '../services/firebase.service';
 import { UtilsService } from '../services/utils.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -11,6 +12,12 @@ import { UtilsService } from '../services/utils.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+
+    constructor(private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
 
   firebaseService = inject(FirebaseService);
   utilsService = inject(UtilsService);

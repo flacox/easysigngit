@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-
+ 
 @Component({
   selector: 'app-lesson4',
   templateUrl: './lesson4.page.html',
   styleUrls: ['./lesson4.page.scss'],
 })
 export class Lesson4Page implements OnInit {
-  constructor(private loadingController: LoadingController) {}
-
+  constructor(private loadingController: LoadingController, private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
+    
   async ionViewWillEnter() {
     // Mostrar el loading spinner
     const loading = await this.loadingController.create({

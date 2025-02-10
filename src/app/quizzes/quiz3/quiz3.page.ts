@@ -35,6 +35,10 @@ export class Quiz3Page {
 
   constructor(private alertController: AlertController, private navController: NavController) { }
 
+  irAPantalla(ruta: string) {
+    this.navController.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
+
   async submitAnswer() {
     if (!this.selectedOption) {
       const alert = await this.alertController.create({

@@ -37,8 +37,12 @@ export class Quiz1Page {
   correctSound = new Audio('assets/sounds/correct.mp3');
   incorrectSound = new Audio('assets/sounds/incorrect.mp3');
 
-  constructor(private alertController: AlertController, private navController: NavController) { }
+  constructor(private alertController: AlertController, private navController: NavController, private navCtrl: NavController) { }
 
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
+  
   async submitAnswer() {
     if (!this.selectedOption) {
       const alert = await this.alertController.create({
@@ -122,3 +126,4 @@ export class Quiz1Page {
     this.navController.navigateBack('/lesson1'); // Cambia '/home' por la ruta de tu menú principal
   }
 }
+ 

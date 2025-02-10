@@ -7,8 +7,6 @@
 
 <ion-content [fullscreen]="true">
 
-  
-
   <h2 class="ion-text-center" style="font-weight: bold;">Demo</h2>
   
   <div class="features-container">
@@ -30,16 +28,16 @@
     
 
   <ion-card>
-    <ion-card-header  routerLink="/test1">
+    <ion-card-header (click)="irAPantalla('/test1')">
       <ion-card-title>Test 1</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       Pon a prueba tus conocimientos!
-    </ion-card-content>
+    </ion-card-content> 
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/test2">
+    <ion-card-header  (click)="irAPantalla('/test2')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Test 2</ion-card-title>
     </ion-card-header>
@@ -49,7 +47,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header  routerLink="/test3">
+    <ion-card-header  (click)="irAPantalla('/test3')">
       <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
       <ion-card-title>Test 3</ion-card-title>
     </ion-card-header>

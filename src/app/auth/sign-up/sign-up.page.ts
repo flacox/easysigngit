@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -10,6 +11,12 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
+
+    constructor(private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
 
   form = new FormGroup({
     uid: new FormControl(''),

@@ -8,7 +8,7 @@
 <ion-content>
   <div class="features-container">
     <ion-card>
-      <ion-card-header  routerLink="/home">
+      <ion-card-header (click)="irAPantalla('/home')">
         <ion-card-title>Inicio</ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -16,7 +16,7 @@
       </ion-card-content>
     </ion-card>
     <ion-card>
-      <ion-card-header  routerLink="/quiz1">
+      <ion-card-header (click)="irAPantalla('/quiz1')">
         <ion-card-title>Quiz 1</ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -25,7 +25,7 @@
     </ion-card>
 
     <ion-card>
-      <ion-card-header  routerLink="/quiz2">
+      <ion-card-header (click)="irAPantalla('/quiz2')">
         <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
         <ion-card-title>Quiz 2</ion-card-title>
       </ion-card-header>
@@ -35,7 +35,7 @@
     </ion-card>
 
     <ion-card>
-      <ion-card-header  routerLink="/quiz3">
+      <ion-card-header (click)="irAPantalla('/quiz3')">
         <ion-icon aria-hidden="true" name="home" slot="start"></ion-icon>
         <ion-card-title>Quiz 3</ion-card-title>
       </ion-card-header>

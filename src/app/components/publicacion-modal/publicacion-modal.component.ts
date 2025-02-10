@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController, LoadingController, ToastController } from '@ionic/angular';
+import { ModalController, LoadingController, ToastController, NavController } from '@ionic/angular';
 import { ComunidadService } from '../../services/comunidad.service';
 
 @Component({
@@ -19,12 +19,17 @@ export class PublicacionModalComponent implements OnInit {
 
   etiquetasDisponibles: string[] = ['Educación', 'Tutorial', 'Pregunta', 'Experiencia', 'Consejo'];
 
-
   constructor(
     private modalController: ModalController,
     private comunidadService: ComunidadService,
     private toastController: ToastController,
-    private loadingController: LoadingController) { }
+    private loadingController: LoadingController,
+    private navCtrl: NavController
+  ) { }
+ 
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
 
   cerrarModal() {
     this.modalController.dismiss();

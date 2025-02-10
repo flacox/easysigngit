@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComunidadService } from '../../services/comunidad.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -13,8 +13,13 @@ export class ProfilePage implements OnInit {
   
   constructor(
     private comunidadService: ComunidadService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private navCtrl: NavController
   ) { }
+
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+  }
 
   ngOnInit() {
     // Obtener datos del usuario del localStorage

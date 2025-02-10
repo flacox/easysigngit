@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { FirebaseService } from './services/firebase.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { FirebaseService } from './services/firebase.service';
 export class AppComponent {
   @Input() nombreUsuario: string = 'Invitado';
   private intervalId: any;
-
+ 
   public appPages = [
     { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
     { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
@@ -20,10 +20,14 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(private menuController: MenuController) { }
+  constructor(private menuController: MenuController, private navCtrl: NavController) { }
 
   closeMenu() {
     this.menuController.close();
+  }
+  
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
   }
   //Se ejecuta cuando el componente se inicializa
   ngOnInit() {

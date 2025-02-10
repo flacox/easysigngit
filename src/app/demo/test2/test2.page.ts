@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-test2',
@@ -12,8 +12,12 @@ export class Test2Page implements OnInit {
     correctAnswer: string = 'B'; //Aqui se define la respuesta correcta
   
   
-    constructor(private alertController: AlertController) { }
-  
+    constructor(private alertController: AlertController, private navCtrl: NavController) { }
+    
+      irAPantalla(ruta: string) {
+        this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+      }
+
     async submitAnswer(){
       if(!this.selectedOption) {
         //Mostrar alerta si no selecciono ninguna opcion

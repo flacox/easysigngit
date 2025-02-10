@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, ModalOptions } from '@ionic/angular';
+import { ModalController, ModalOptions, NavController } from '@ionic/angular';
 import { VideoModalComponent } from 'src/app/video-modal/video-modal.component';
 
 @Component({
@@ -41,7 +41,11 @@ export class Lesson3Page {
      },
   ]
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
 
   async playVideo(videoUrl: string, videoDescription: string){
     const modal = await this.modalController.create({

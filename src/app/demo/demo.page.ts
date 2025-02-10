@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { VideoModalComponent } from '../video-modal/video-modal.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-demo',
@@ -12,7 +12,7 @@ export class DemoPage implements OnInit {
 
   firebaseService = inject(FirebaseService);
 
-  
+   
 signOut(){
     this.firebaseService.signOut();
   }
@@ -25,7 +25,11 @@ signOut(){
     }
   ]
 
-  constructor(private modalController: ModalController){}
+  constructor(private modalController: ModalController, private navCtrl: NavController) { }
+        
+          irAPantalla(ruta: string) {
+            this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+          }
 
   async playVideo(videoUrl: string, videoDescription: string){
       const modal = await this.modalController.create({

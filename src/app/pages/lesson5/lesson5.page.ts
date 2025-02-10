@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-lesson5',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Lesson5Page implements OnInit {
 
-  constructor() { }
-
+  constructor(private navCtrl: NavController) { }
+  
+    irAPantalla(ruta: string) {
+      this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
+    }
+    
   ngOnInit() {
   }
 

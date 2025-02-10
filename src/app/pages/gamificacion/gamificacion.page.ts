@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComunidadService } from '../../services/comunidad.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-gamificacion',
@@ -10,10 +11,14 @@ export class GamificacionPage implements OnInit {
   topPublicaciones: any[] = [];
   topComentarios: any[] = [];
 
-  constructor(private comunidadService: ComunidadService) {}
-
+  constructor(private comunidadService: ComunidadService, private navCtrl: NavController) {}
+ 
   ngOnInit() {
     this.obtenerTopPublicaciones();
+  }
+
+  irAPantalla(ruta: string) {
+    this.navCtrl.navigateRoot(ruta); // Cierra la pantalla actual y abre la nueva
   }
 
   obtenerTopPublicaciones() {
