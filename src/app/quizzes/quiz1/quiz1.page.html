@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="custom-toolbar-global">
     <ion-buttons slot="start" (click)="irAPantalla('/lesson1')">
-      <ion-button>Back</ion-button>
+      <ion-icon class="custom-icon-global" slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-title>Quiz de Preguntas I</ion-title>
+    <ion-title class="ion-text-center custom-title-global">Quiz de Preguntas I</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
  
 <ion-content class="ion-padding text-test-content">
   <div class="question-container">
@@ -21,6 +21,6 @@
   </div>
 
   <div class="button-container">
-    <ion-button expand="block" color="primary" (click)="submitAnswer()">Responder</ion-button>
+    <ion-button expand="block" (click)="submitAnswer()">Responder</ion-button>
   </div>
 </ion-content>

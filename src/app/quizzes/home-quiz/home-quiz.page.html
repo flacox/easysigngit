@@ -1,7 +1,7 @@
 
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">EasySign</ion-title>
+  <ion-toolbar class="custom-toolbar-global">
+    <ion-title class="ion-text-center custom-title-global">EasySign</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,10 @@
   <div class="features-container">
     <ion-card>
       <ion-card-header (click)="irAPantalla('/home')">
-        <ion-card-title>Inicio</ion-card-title>
+        <ion-card-title>
+          <ion-icon name="home"></ion-icon>
+           Inicio
+        </ion-card-title>      
       </ion-card-header>
       <ion-card-content>
         Accede a la lista de todas las lecciones y tests

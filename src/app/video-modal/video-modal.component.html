@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="custom-toolbar-global">
     <ion-buttons slot="start">
-      <ion-button (click)="closeModal()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-button (click)="closeModal()" class="custom-icon" ><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
     </ion-buttons>
-    <ion-title> {{ title }}</ion-title>
+    <ion-title class="ion-text-center custom-title-global"> {{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,4 +14,4 @@
   <div class="description-container">
     <p>{{ videoDescription }}</p>
   </div>
-</ion-content>
+</ion-content> 

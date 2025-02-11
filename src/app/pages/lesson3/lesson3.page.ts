@@ -7,7 +7,7 @@ import { VideoModalComponent } from 'src/app/video-modal/video-modal.component';
   templateUrl: './lesson3.page.html',
   styleUrls: ['./lesson3.page.scss'],
 })
-export class Lesson3Page {
+export class Lesson3Page { 
 
   videoList = [
     {title: 'Los números del 0 al 30', 
